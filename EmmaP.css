@@ -1,0 +1,228 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Styles pour la deuxième section fusionnés avec la première */
+    margin: 0;
+    /* J'ai retiré le font-family 'Arial' qui contredisait 'Poppins' dans le '*' */
+    background: #f4f4f4; /* Fond par défaut pour le contenu hors bannière */
+}
+
+p {
+    font-weight: 300;
+    color: #111;
+}
+
+/* En-tête / Barre de navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Ajustement du padding pour correspondre à la section et à la bannière */
+    padding: 20px 100px; 
+    width: 100%;
+    z-index: 1000; /* Augmentation du z-index pour être sûr que le header soit au-dessus */
+    display: flex;
+    /* Changé de space-evenly à space-between pour une meilleure structure logo/liens */
+    justify-content: space-between; 
+    align-items: center;
+    transition: 0.5s;
+    background: rgba(0, 0, 0, 0.8); /* Ajout d'un fond semi-transparent pour la lisibilité */
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: none;
+}
+.logo span {
+    color: palevioletred;
+}
+
+.navbar {
+    display: flex;
+    position: relative;
+    align-items: center; /* Assure que tous les éléments sont alignés verticalement */
+}
+.navbar li {
+    list-style: none;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 700;
+    /* Ajout d'une transition pour le hover */
+    transition: 0.3s; 
+}
+
+/* Styles du bouton "Acheter Maintenant" dans la navbar */
+.btn-achter-maintenant {
+    padding: 10px 20px;
+    background: palevioletred;
+    /* Retrait du margin-top inutile car on a align-items: center sur .navbar */
+    /* margin-top: -10px; */ 
+    text-transform: uppercase;
+    display: inline-block; /* S'assurer que le padding fonctionne */
+}
+
+.btn-achter-maintenant:hover {
+    background: purple;
+    transition: 0.3s ease-out; /* Correction de la transition */
+}
+
+header .navbar li a:hover {
+    color: palevioletred;
+    border-bottom: 2px solid palevioletred;
+}
+
+/* Section Bannière */
+.banniere {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(IP.jpg);
+    background-size: cover;
+    background-position: center; /* Assure que l'image est bien centrée */
+}
+
+.banniere .contenu {
+    max-width: 900px; /* J'ai élargi un peu pour le texte */
+    padding: 20px; /* Ajout d'un padding pour les petits écrans */
+    text-align: center;
+}
+.banniere .contenu h2 {
+    color: white;
+    font-size: 3em;
+    text-transform: capitalize;
+}
+.contenu p:nth-child(2) {
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Styles des boutons dans la bannière */
+.btn1, .btn2 {
+    font-size: 1em;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    margin: 20px 10px 0 10px; /* Meilleure gestion des marges */
+} 
+
+.btn1 {
+    background: palevioletred;
+} 
+.btn2 {
+    background: #2a4963;
+} 
+
+.btn1:hover {
+    letter-spacing: 4px;
+}
+.btn2:hover {
+    background: #1e3a53; /* Ajout d'un hover pour le btn2 */
+}
+
+/* Section de contenu générale */
+section {
+    padding: 100px;
+    min-height: 100vh;
+}
+
+/* Navigation de la section 'Nos Produits' */
+/* Sélecteur plus spécifique pour éviter les conflits */
+.container nav { 
+    background: #222;
+    padding: 15px;
+    display: flex;
+    justify-content: center; /* Centrer les liens de navigation de la section */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.container nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+.container nav a:hover {
+    color: palevioletred;
+}
+
+/* Conteneur de la section 'Nos Produits' */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.container h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.container > p {
+    margin-bottom: 30px;
+}
+
+/* Slider */
+.slider {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.slider img {
+    /* Ajusté pour une meilleure gestion de l'espace dans un conteneur fixe */
+    width: 100%; 
+    height: 100%; /* S'adapte à la hauteur fixe du slider */
+    object-fit: contain; /* Utiliser 'contain' pour ne pas couper l'image et la centrer */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s;
+    top: 0;
+    left: 0;
+}
+.slider img.active {
+    opacity: 1;
+}
+
+/* Boutons du slider */
+.buttons {
+    display: flex;
+    gap: 10px; /* Ajout d'un espace entre les boutons */
+    margin-top: 10px;
+}
+.buttons button {
+    flex: 1;
+    padding: 15px;
+    background: purple;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px; /* Ajout d'un petit arrondi */
+    transition:  0.3s;
+}
+.buttons button:hover {
+    background: palevioletred;
+}
